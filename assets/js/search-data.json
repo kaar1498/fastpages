@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Title",
+            "title": "MY ICLR workshop notebook",
             "content": "from pathlib import Path import warnings warnings.filterwarnings(&#39;ignore&#39;) . path = Path(&#39;.&#39;) path.ls() . (#5) [Path(&#39;.ipynb_checkpoints&#39;),Path(&#39;ICLR.ipynb&#39;),Path(&#39;models&#39;),Path(&#39;test&#39;),Path(&#39;train&#39;)] . fns = get_image_files(path) fns . (#1486) [Path(&#39;test/008FWT.JPG&#39;),Path(&#39;test/00AQXY.JPG&#39;),Path(&#39;test/01OJZX.JPG&#39;),Path(&#39;test/07OXKK.jfif&#39;),Path(&#39;test/085IEC.jpg&#39;),Path(&#39;test/08O2YE.JPG&#39;),Path(&#39;test/08WLJO.jfif&#39;),Path(&#39;test/0E1VTP.jfif&#39;),Path(&#39;test/0GJFRQ.JPG&#39;),Path(&#39;test/0J3PQ7.JPG&#39;)...] . def get_y(r): return[Path(r).parent.name] . dblock = DataBlock((ImageBlock, MultiCategoryBlock), get_items=get_image_files, get_y=get_y, item_tfms=Resize(460), batch_tfms=aug_transforms(size=224, min_scale=0.75)) . dsets = dblock.datasets(path/&#39;train&#39;) dsets.train[0] . (PILImage mode=RGB size=259x194, TensorMultiCategory([0., 1., 0.])) . dls = dblock.dataloaders(path/&#39;train&#39;, num_workers=0) . dls.show_batch(max_n=8, nrows=2, unique=False) . learn = cnn_learner(dls, resnet18, metrics=accuracy_multi) learn.loss_func . lr_min,lr_steep = learn.lr_find() . print(f&quot;Minimum/10: {lr_min:.2e}, steepest point: {lr_steep:.2e}&quot;) . Minimum/10: 1.45e-02, steepest point: 3.31e-02 . learn.fine_tune(4) . epoch train_loss valid_loss accuracy_multi time . 0 | 0.954003 | 0.570648 | 0.750476 | 02:06 | . epoch train_loss valid_loss accuracy_multi time . 0 | 0.708740 | 0.507207 | 0.765714 | 02:08 | . 1 | 0.625947 | 0.436507 | 0.811429 | 02:09 | . 2 | 0.552557 | 0.397155 | 0.836190 | 02:12 | . 3 | 0.506624 | 0.387671 | 0.845714 | 02:11 | . df = pd.DataFrame(columns=[&#39;ID&#39;, &#39;leaf_rust&#39;, &#39;stem_rust&#39;, &#39;healthy_wheat&#39;]) with learn.no_bar(): for image in fns: file_id = image.name.split(&quot;.&quot;)[0] _,_,pred = learn.predict(image) new_row = { &#39;ID&#39;:file_id, &#39;leaf_rust&#39;:pred[2].item(), &#39;stem_rust&#39;:pred[1].item(), &#39;healthy_wheat&#39;:pred[0].item() } df.loc[file_id] = new_row . df.set_index(&#39;ID&#39;, inplace=True) . df = df.round(decimals=2) . df.to_csv(&quot;answer.csv&quot;) .",
-            "url": "https://kaar1498.github.io/fastpages/2021/03/22/ICLR.html",
-            "relUrl": "/2021/03/22/ICLR.html",
+            "url": "https://kaar1498.github.io/fastpages/jupyter/2021/03/22/ICLR.html",
+            "relUrl": "/jupyter/2021/03/22/ICLR.html",
             "date": " • Mar 22, 2021"
         }
         
